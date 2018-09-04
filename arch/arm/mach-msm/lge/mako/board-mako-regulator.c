@@ -106,7 +106,7 @@ VREG_CONSUMERS(L16) = {
 };
 VREG_CONSUMERS(L17) = {
 	REGULATOR_SUPPLY("8921_l17",		NULL),
-#if defined(CONFIG_IMX111)
+#if defined(CONFIG_IMX111) || defined(CONFIG_IMX091) 
 	REGULATOR_SUPPLY("cam1_vaf",	"4-000d"), /* GSBI4, Slave Addr: 0x0d, imx111 */
 #endif
 };
@@ -118,16 +118,17 @@ VREG_CONSUMERS(L18) = {
 };
 
 /* Power setting for 13M AF */
-#if defined(CONFIG_IMX091)
+// Docomo KDDI Version is not define 
+//#if defined(CONFIG_IMX091)
+//VREG_CONSUMERS(L21) = {
+//	REGULATOR_SUPPLY("8921_l21",		NULL),
+//	REGULATOR_SUPPLY("cam1_vaf",	"4-000d"), /* GSBI4, Slave Addr: 0x0d, imx091 */
+//};
+//#else
 VREG_CONSUMERS(L21) = {
 	REGULATOR_SUPPLY("8921_l21",		NULL),
-	REGULATOR_SUPPLY("cam1_vaf",	"4-000d"), /* GSBI4, Slave Addr: 0x0d, imx091 */
 };
-#else
-VREG_CONSUMERS(L21) = {
-	REGULATOR_SUPPLY("8921_l21",		NULL),
-};
-#endif
+//#endif
 
 VREG_CONSUMERS(L22) = {
 	REGULATOR_SUPPLY("8921_l22",		NULL),
